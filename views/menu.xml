@@ -1,0 +1,9 @@
+<odoo>
+    <data>
+        <menuitem id="main_odoo_musica" name="Música"/>
+        <menuitem id="musica_menu" name="Opcións" parent="main_odoo_musica"/>
+        <menuitem id="interprete_menu" name="Intérprete" parent="musica_menu" action="interprete_list_action"/>
+        <menuitem id="cancion_menu" name="Canción" parent="musica_menu" action="cancion_list_action"/>
+        <menuitem id="album_menu" name="Albúm" parent="musica_menu" action="album_list_action"/>
+    </data>
+</odoo>

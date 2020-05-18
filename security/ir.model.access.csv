@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+odoo_musica_album,odoo_musica.album,model_odoo_musica_album,base.group_user,1,1,1,1
+odoo_musica_cancion,odoo_musica.cancion,model_odoo_musica_cancion,base.group_user,1,1,1,1
+odoo_musica_interprete,odoo_musica.interprete,model_odoo_musica_interprete,base.group_user,1,1,1,1
