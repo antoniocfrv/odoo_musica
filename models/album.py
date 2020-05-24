@@ -25,8 +25,8 @@ class album(models.Model):
 
     @api.depends('cancion_ids')
     def _determina_interpretes(self):
-        # for rexistro in self:
-        #     rexistro._actualiza_interpretes_do_album(rexistro)
+         # for rexistro in self:
+         #     rexistro._actualiza_interpretes_do_album(rexistro)
         self._actualiza_interpretes_do_album(self) # se non queremos que funcione para todos os rexistros de album
 
     def _recalcula_interpretes_se_cambiou_o_interprete_da_cancion(self,cancion_cambiada):

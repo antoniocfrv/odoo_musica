@@ -27,7 +27,7 @@
         'views/cancion.xml',
         'views/album.xml',
         'views/menu.xml',
-        #'views/templates.xml',
+        'views/templates.xml',
         'security/ir.model.access.csv',
     ],
     # only loaded in demonstration mode
