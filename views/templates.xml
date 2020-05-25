@@ -1,6 +1,6 @@
 <odoo>
     <data>
-<!--        https://fundamentos-de-desarrollo-en-odoo.readthedocs.io/es/latest/capitulos/serializacion-de-datos-y-datos-del-modulo.html-->
+<!--        https://fundamentos-de-desarrollo-en-odoo.readthedocs.io/es/latest/capitulos/serializacion-de-datos-y-datos-del-modulo.html -->
 <!--        https://www.odoo.com/documentation/user/13.0/general/base_import/import_faq.html#how-can-i-import-a-many2many-relationship-field-e-g-a-customer-that-has-multiple-tags-->
         <record model="odoo_musica.interprete" id="Bruce_Springsteen">
             <field name="name">Bruce Springsteen</field>
