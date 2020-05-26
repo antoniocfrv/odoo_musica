@@ -13,23 +13,15 @@ class album(models.Model):
                                    ondelete="set null")
     interprete_ids = fields.Many2many("odoo_musica.interprete", string="Intérpretes do Álbum",
                                  relation="odoo_musica_album_interprete", column1="album", column2="interprete",
-                                 ondelete="cascade", compute="_determina_interpretes", store=True)
+                                 ondelete="cascade", compute="_determina_interpretes", store=False)
 
-    def _actualiza_interpretes_do_album(self,album_a_revisar):
-        lista = []
-        for unha_cancion in album_a_revisar.cancion_ids:
-            id_da_cancion = unha_cancion[0].id
-            obxeto_cancion = self.env['odoo_musica.cancion'].search([('id', '=', id_da_cancion)])
-            lista.append(obxeto_cancion.interprete_id.id)  # Obtemos o id do intérprete e engadimolo na lista
-        album_a_revisar.update({'interprete_ids': [(6, 0, tuple(lista))]})  # Actualizamos os novos intérpretes
 
     @api.depends('cancion_ids')
     def _determina_interpretes(self):
-         # for rexistro in self:
-         #     rexistro._actualiza_interpretes_do_album(rexistro)
-        self._actualiza_interpretes_do_album(self) # se non queremos que funcione para todos os rexistros de album
-
-    def _recalcula_interpretes_se_cambiou_o_interprete_da_cancion(self,cancion_cambiada):
-        for rexistro_album in self:
-            if cancion_cambiada in rexistro_album.cancion_ids:
-                rexistro_album._actualiza_interpretes_do_album(rexistro_album)
+        for rexistro in self:
+            lista = []
+            for unha_cancion in rexistro.cancion_ids:
+                id_da_cancion = unha_cancion[0].id
+                obxeto_cancion = self.env['odoo_musica.cancion'].search([('id', '=', id_da_cancion)])
+                lista.append(obxeto_cancion.interprete_id.id)  # Obtemos o id do intérprete e engadimolo na lista
+            rexistro.update({'interprete_ids': [(6, 0, tuple(lista))]})  # Actualizamos os novos intérpretes

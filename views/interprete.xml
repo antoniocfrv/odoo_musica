@@ -21,7 +21,6 @@
             <group>
               <field name="name"/>
               <field name="cancion_ids" readonly="1"/>
-              <field name="album_ids" readonly="1"/>
             </group>
           </sheet>
         </form>
@@ -35,7 +34,6 @@
         <tree string="interprete Tree">
           <field name="name"/>
           <field name="cancion_ids"/>
-          <field name="album_ids"/>
         </tree>
       </field>
     </record>

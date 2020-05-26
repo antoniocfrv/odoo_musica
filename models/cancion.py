@@ -9,6 +9,4 @@ class cancion(models.Model):
     name = fields.Char(required=True, size=30, string="Canción") #IMPORTANTE o campo ten que chamarse name para visualizalo
     interprete_id = fields.Many2one("odoo_musica.interprete",string="Intérprete", ondelete='cascade', required=True)
 
-    @api.depends('interprete_id')
-    def _interpretes_en_albumes(self):
-        self.env['odoo_musica.album']._recalcula_interpretes_se_cambiou_o_interprete_da_cancion(self)
+

@@ -9,5 +9,3 @@ class interprete(models.Model):
 
     name = fields.Char(required=True, size=30, string="Intérprete") #IMPORTANTE o campo ten que chamarse name para visualizalo
     cancion_ids = fields.One2many("odoo_musica.cancion", 'interprete_id',string="Cancións")
-    album_ids = fields.Many2many('odoo_musica.album', string="Álbumes",relation="odoo_musica_album_interprete", column1="interprete", column2="album",ondelete="cascade")
-
