@@ -20,7 +20,8 @@
           <sheet>
             <group>
               <field name="name"/>
-              <field name="cancion_ids" readonly="1"/>
+<!--              <field name="cancion_ids" readonly="1"/> Non se poden crear cancións dende interprete-->
+              <field name="cancion_ids" context="{'one2many':True}"/>
             </group>
           </sheet>
         </form>

@@ -20,7 +20,7 @@
           <sheet>
             <group>
               <field name="name"/>
-              <field name="interprete_id" />
+              <field name="interprete_id" invisible="context.get('one2many')"/>
             </group>
           </sheet>
         </form>

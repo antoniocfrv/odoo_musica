@@ -23,5 +23,6 @@ class album(models.Model):
             for unha_cancion in rexistro.cancion_ids:
                 id_da_cancion = unha_cancion[0].id
                 obxeto_cancion = self.env['odoo_musica.cancion'].search([('id', '=', id_da_cancion)])
-                lista.append(obxeto_cancion.interprete_id.id)  # Obtemos o id do intérprete e engadimolo na lista
+                if obxeto_cancion.interprete_id.id:
+                    lista.append(obxeto_cancion.interprete_id.id)  # Obtemos o id do intérprete e engadimolo na lista
             rexistro.update({'interprete_ids': [(6, 0, tuple(lista))]})  # Actualizamos os novos intérpretes
