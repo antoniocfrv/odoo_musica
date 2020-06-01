@@ -9,11 +9,10 @@ class album(models.Model):
 
     name = fields.Char(required=True, size=30,string="Álbum")  # IMPORTANTE o campo ten que chamarse name para visualizalo
     cancion_ids = fields.Many2many("odoo_musica.cancion", string="Cancións do Álbum",
-                                   relation="odoo_musica_album_cancion", column1="album", column2="cancion",
-                                   ondelete="set null")
+                                   relation="odoo_musica_album_cancion", column1="album", column2="cancion")
     interprete_ids = fields.Many2many("odoo_musica.interprete", string="Intérpretes do Álbum",
-                                 relation="odoo_musica_album_interprete", column1="album", column2="interprete",
-                                 ondelete="cascade", compute="_determina_interpretes", store=False)
+                                 relation="odoo_musica_album_interprete", column1="album", column2="interprete",ondelete="cascade",
+                                 compute="_determina_interpretes", store=False)
 
 
     @api.depends('cancion_ids')
