@@ -1,0 +1,42 @@
+<odoo>
+  <data>
+    <record model="ir.actions.act_window" id="interprete_list_action">
+      <field name="name">Intérpretes</field><!--O que se visualiza na parte superior esquerda-->
+      <field name="res_model">odoo_musica.interprete</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">Tes que crear o primeiro rexistro</p>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="interprete_form_view">
+      <field name="name">interprete.form</field>
+      <field name="model">odoo_musica.interprete</field>
+      <field name="arch" type="xml">
+        <form string="Formulario Intérpretes">
+          <header>
+          </header>
+          <sheet>
+            <group>
+              <field name="name"/>
+<!--              <field name="cancion_ids" readonly="1"/> Non se poden crear cancións dende interprete-->
+              <field name="cancion_ids" context="{'one2many':True}"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="interprete_tree_view">
+      <field name="name">interprete.form</field>
+      <field name="model">odoo_musica.interprete</field>
+      <field name="arch" type="xml">
+        <tree string="interprete Tree">
+          <field name="name"/>
+          <field name="cancion_ids"/>
+        </tree>
+      </field>
+    </record>
+
+  </data>
+</odoo>

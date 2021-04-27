@@ -1,0 +1,62 @@
+<odoo>
+    <data>
+<!--        https://fundamentos-de-desarrollo-en-odoo.readthedocs.io/es/latest/capitulos/serializacion-de-datos-y-datos-del-modulo.html -->
+<!--        https://www.odoo.com/documentation/user/13.0/general/base_import/import_faq.html#how-can-i-import-a-many2many-relationship-field-e-g-a-customer-that-has-multiple-tags-->
+        <record model="odoo_musica.interprete" id="Bruce_Springsteen">
+            <field name="name">Bruce Springsteen</field>
+        </record>
+        <record model="odoo_musica.interprete" id="U2">
+            <field name="name">U2</field>
+        </record>
+        <record model="odoo_musica.cancion" id="The_Ghost_of_Tom_Joad">
+            <field name="name">The Ghost of Tom Joad</field>
+            <field name="interprete_id" ref="Bruce_Springsteen"/>
+        </record>
+        <record model="odoo_musica.cancion" id="Fire_Bruce">
+            <field name="name">Fire</field>
+            <field name="interprete_id" ref="Bruce_Springsteen"/>
+        </record>
+        <record model="odoo_musica.cancion" id="Fire_U2">
+            <field name="name">Fire</field>
+            <field name="interprete_id" ref="U2"/>
+        </record>
+        <record model="odoo_musica.cancion" id="October">
+            <field name="name">October</field>
+            <field name="interprete_id" ref="U2"/>
+        </record>
+        <record model="odoo_musica.cancion" id="With_or_without_you">
+            <field name="name">With or without you</field>
+            <field name="interprete_id" ref="U2"/>
+        </record>
+        <record model="odoo_musica.album" id="U2_album1">
+            <field name="name">U2 Album 1</field>
+            <field name="cancion_ids" eval="[(6,0,[ref('Fire_U2'),ref('October'),ref('With_or_without_you')] )]"/>
+        </record>
+        <record model="odoo_musica.album" id="Bruce_album1">
+            <field name="name">Bruce Album 1</field>
+            <field name="cancion_ids" eval="[(6,0,[ref('The_Ghost_of_Tom_Joad'),ref('Fire_Bruce')] )]"/>
+        </record>
+         <record model="odoo_musica.album" id="Mix_album1">
+            <field name="name">Mix Album 1</field>
+            <field name="cancion_ids" eval="[(6,0,[ref('Fire_U2'),ref('October'),ref('With_or_without_you'),ref('The_Ghost_of_Tom_Joad'),ref('Fire_Bruce')] )]"/>
+        </record>
+        <!-- <template id="listing"> -->
+        <!--   <ul> -->
+        <!--     <li t-foreach="objects" t-as="object"> -->
+        <!--       <a t-attf-href="#{ root }/objects/#{ object.id }"> -->
+        <!--         <t t-esc="object.display_name"/> -->
+        <!--       </a> -->
+        <!--     </li> -->
+        <!--   </ul> -->
+        <!-- </template> -->
+        <!-- <template id="object"> -->
+        <!--   <h1><t t-esc="object.display_name"/></h1> -->
+        <!--   <dl> -->
+        <!--     <t t-foreach="object._fields" t-as="field"> -->
+        <!--       <dt><t t-esc="field"/></dt> -->
+        <!--       <dd><t t-esc="object[field]"/></dd> -->
+        <!--     </t> -->
+        <!--   </dl> -->
+        <!-- </template> -->
+    </data>
+</odoo>
